@@ -60,7 +60,6 @@ function painToDo(newTodo){
     
 }
 
-
 function handleToDoSubmit(event){
     event.preventDefault();
     const newTodo = toDoInput.value; // newTodo는 toDoInput.value값을 비우기 전에 나타내는 string

@@ -81,7 +81,7 @@ if(viewMonth === today.getMonth() && viewYear === today.getFullYear()){ // viewM
     }
 }
 
-const Day = document.querySelector(".dates")
+const Day = document.querySelector(".dates");
 const todoTitle = document.querySelector("#todo-form label");
 const toDoFrom = document.getElementById("todo-form");
 
@@ -114,12 +114,10 @@ Day.addEventListener('click',(event)=>{
         console.log(clickEventArr);
 
         // 선택한 날짜가 todos에 저장된 날짜와 맞는지 비교해서 painToDo로 보낸다.
-
         const parsedToDos = JSON.parse(savedToDos);
-    
         parsedToDos.forEach((value) => value.date === {choiceDate});
         toDos = parsedToDos; 
-        painToDo();
+        parsedToDos.painToDo();
 
         }
     });
