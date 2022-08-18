@@ -1,5 +1,9 @@
 let date = new Date(); // 날짜 Date 객체 활용
 
+let Y;
+let M;
+let D;
+
 const renderCalendar = () => {
     
 const viewYear = date.getFullYear(); // 년도 변수 생성
@@ -99,33 +103,37 @@ Day.addEventListener('click',(event)=>{
         todoTitle.textContent = `${viewYear}년 ${viewMonth + 1}월 ${event.target.textContent}일 계획이 있나요?`;
         event.target.style.borderBottom = "3px solid blue"
 
-        let choiceDate =`${viewYear}-${viewMonth + 1}-${event.target.textContent}`; // 년-월-일을 변수로 만듬
+        // 년/월/일을 변수로 만듬
+        D = (event.target.textContent)*1;
+        M = viewMonth + 1;
+        Y = viewYear;
+
+        let choiceDate =`${Y}-${M}-${D}`; // 년-월-일을 변수로 만듬
         
         clickEventArr.push(event.target);
         console.log(clickEventArr);
 
         // 선택한 날짜가 todos에 저장된 날짜와 맞는지 비교해서 painToDo로 보낸다.
+
         const parsedToDos = JSON.parse(savedToDos);
-        parsedToDos.forEach((value) => {
-            if(value.date === choiceDate){
-            toDos = parsedToDos; 
-            parsedToDos(painToDo);
+    
+        parsedToDos.forEach((value) => value.date === {choiceDate});
+        toDos = parsedToDos; 
+        painToDo();
+
         }
     });
 
-    }
-});
-
 // 일/월/년을 변수로 만들고, 오늘 날짜를 디폴트로 표시한다.
 date = new Date();
+
 D = date.getDate();
 M =  date.getMonth()+1;
 Y = date.getFullYear();
 
 todoTitle.textContent = `${Y}년 ${M}월 ${D}일 계획이 있나요?`;
 
-
-}
+};
 
 renderCalendar(); // 위 코드를 함수로 만들어 호출
 

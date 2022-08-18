@@ -61,7 +61,6 @@ function painToDo(newTodo){
 }
 
 
-
 function handleToDoSubmit(event){
     event.preventDefault();
     const newTodo = toDoInput.value; // newTodo는 toDoInput.value값을 비우기 전에 나타내는 string
@@ -85,7 +84,6 @@ if(savedToDos !== null){
     // JSON.parse(text) : JSON 문자열의 구문을 분석하고, 그 결과에서 JavaScript 값이나 객체를 생성한다.
     // text : JSON으로 변환할 문자열 
     const parsedToDos = JSON.parse(savedToDos);
-    // 날짜를 todolist 셋팅할 때 내가 선택한 날짜가 맞는지 필터 돌린다? 해당되는것만  painToDo로 보내서 보여준다.
     toDos = parsedToDos; // 맨 위 빈 배열에 let 을 사용하여 이전 값을 넣어 모든 값을 넣는다.
     parsedToDos.forEach(painToDo);
 }
