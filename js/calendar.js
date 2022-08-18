@@ -104,7 +104,7 @@ Day.addEventListener('click',(event)=>{
         clickEventArr.push(event.target);
         console.log(clickEventArr);
 
-        // 선택한 날짜가 todos에 저장된 날짜와 맞는지 비교해서 painToDo로 보낸다
+        // 선택한 날짜가 todos에 저장된 날짜와 맞는지 비교해서 painToDo로 보냄
         const parsedToDos = JSON.parse(savedToDos);
         parsedToDos.forEach((value) => {
             if(value.date === choiceDate){
