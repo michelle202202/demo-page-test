@@ -32,7 +32,7 @@ if (saveUsername === null) {
   paintGreetings(saveUsername);
 }
 
-// localStorag에 이름을 저장/불러오기/삭제하는 방법
+// localStorag에 이름을 저장/불러오기/삭제하는 방법입니다.
 // - localStorage.setItem : 이름을 저장한다
 // - localStorage.getItem : 이름을 불러온다
 // - localStorage.removeItem : 이름을 삭제한다
