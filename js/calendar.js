@@ -83,7 +83,6 @@ if(viewMonth === today.getMonth() && viewYear === today.getFullYear()){ // viewM
 
 const Day = document.querySelector(".dates");
 const todoTitle = document.querySelector("#todo-form label");
-const toDoFrom = document.getElementById("todo-form");
 
 let clickEventArr = [];
 
