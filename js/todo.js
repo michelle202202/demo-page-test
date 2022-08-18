@@ -70,7 +70,7 @@ function handleToDoSubmit(event){
         // text 값과 id 값이 포함된 newTodoObj 객체를 만든다.
         text: newTodo,
         id: Date.now(), // Date.now() : UTC 기준으로 1970년 1월 1일 0시 0분 0초부터 현재까지 경과된 밀리 초를 반환
-        date: `${Y}-${M}-${D}` // 년/월/일을 반환
+        date: `${Y}-${M}-${D}` // 년-월-일을 반환
     };
     toDos.push(newTodoObj); // newTodo를 toDos 새로운 배열에 추가한다. (과거 내역은 없는 상태)
     painToDo(newTodoObj); // painToDo 함수에 newTodo를 넣어서 호출한다.
@@ -90,4 +90,3 @@ if(savedToDos !== null){
     parsedToDos.forEach(painToDo);
 }
 
-// 다른 날짜를 선택할 때 새로운 todolist를 그려줘야 하는 함수가 필요함
