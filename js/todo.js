@@ -3,12 +3,16 @@ const toDoFrom = document.getElementById("todo-form");
 const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
-const TODOS_KEY = "todos"; // 자주 사용하는 string은 미리 정의해둔다.
+const TODOS_KEY = 'todos'; // 자주 사용하는 string은 미리 정의해둔다.
 
 let toDos = []; 
 
 // localStorage에 저장하는 함수
 function saveToDos(){
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)) // JSON.stringify() : string으로 변환해준다.
+}
+
+function saveDay(){
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)) // JSON.stringify() : string으로 변환해준다.
 }
 
@@ -66,7 +70,7 @@ function handleToDoSubmit(event){
         // text 값과 id 값이 포함된 newTodoObj 객체를 만든다.
         text: newTodo,
         id: Date.now(), // Date.now() : UTC 기준으로 1970년 1월 1일 0시 0분 0초부터 현재까지 경과된 밀리 초를 반환
-        // date: 날짜를 저장 // 
+        date: `${Y}-${M}-${D}` // 년/월/일을 반환
     };
     toDos.push(newTodoObj); // newTodo를 toDos 새로운 배열에 추가한다. (과거 내역은 없는 상태)
     painToDo(newTodoObj); // painToDo 함수에 newTodo를 넣어서 호출한다.
@@ -75,7 +79,6 @@ function handleToDoSubmit(event){
 
 toDoFrom.addEventListener("submit", handleToDoSubmit);
 
-// 
 const savedToDos = localStorage.getItem(TODOS_KEY); // savedToDos에 TODOS_KEY 값을 가져오는 변수를 정의한다.
 
 if(savedToDos !== null){
