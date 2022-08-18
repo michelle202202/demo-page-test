@@ -113,14 +113,27 @@ Day.addEventListener('click',(event)=>{
         clickEventArr.push(event.target);
         console.log(clickEventArr);
 
-        // 선택한 날짜가 todos에 저장된 날짜와 맞는지 비교해서 painToDo로 보낸다.
-        const parsedToDos = JSON.parse(savedToDos);
-        parsedToDos.forEach((value) => value.date === {choiceDate});
-        toDos = parsedToDos; 
-        parsedToDos.painToDo();
 
+        // 선택한 날짜에서 입력된 일정을 지운다.
+        const li = document.querySelector("li");
+        if(li !== null){
+            li.remove();
         }
-    });
+        
+        // 선택한 날짜가 todos에 저장된 날짜와 맞는지 비교해서 painToDo로 보낸다.
+        const savedToDos = localStorage.getItem(TODOS_KEY);
+        const parsedToDos = JSON.parse(savedToDos);
+        parsedToDos.forEach((value) => {
+            if(value.date === choiceDate){
+                painToDo(value); 
+            }
+
+        });
+
+    }
+
+});
+
 
 // 일/월/년을 변수로 만들고, 오늘 날짜를 디폴트로 표시한다.
 date = new Date();
