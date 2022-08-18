@@ -140,7 +140,7 @@ ul li:hover {
   
 } */
 
-.check-box::before {
+/* .check-box::before {
   content: '';
   position: absolute;
   border-color: #fff;
@@ -151,7 +151,7 @@ ul li:hover {
   transform: rotate(45deg);
   height: 15px;
   width: 7px;
-}
+} */
 
 .close-button {
   position: absolute;
